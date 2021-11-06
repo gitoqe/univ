@@ -1,11 +1,40 @@
 \documentclass[oneside,final,14pt]{extreport}
-\usepackage[koi8-r]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[russianb]{babel}
 \usepackage{vmargin}
 \setpapersize{A4}
 % поля документа
-\setmarginsrb{2cm}{1.5cm}{1cm}{1.5cm}{0pt}{0mm}{0pt}{13mm}
-% отступ первого абзаца
+\setmarginsrb{3cm}{2cm}{1cm}{2cm}{0pt}{0mm}{0pt}{13mm}
+% Включение отступа первого абзаца
 \usepackage{indentfirst}
 % не вылезать за поля
 \sloppy
+
+
+%\newcommand{\anonsection}[1]{
+%    \phantomsection
+%    \paragraph{\centerline{\textbf{#1}}\vspace{1em}}
+%    \addcontentsline{toc}{section}{\uppercase{#1}}
+%}
+
+% Межстрочный интервал и абзацный отступ
+\renewcommand{\baselinestretch}{1.5}
+\parindent 1.27cm
+
+% Работа с кодом
+\usepackage{color}
+% \definecolor{blue}{rgb}{}
+\usepackage{listings}
+\lstset{
+    %language=Python,
+    firstnumber=1,
+    %frame=single,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{green},
+    basicstyle=\ttfamily,
+    numbers=left,
+    breaklines=true,
+    tabsize=2,
+    literate={--}{{-{}-}}2,
+    xleftmargin=1.27cm
+}
