@@ -1,15 +1,15 @@
-message = 'guv6Jv6Jz!J6rp5r7Jzr66ntrM'
-SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.'
-print("IN: ", message)
+original = 'Uryy2Jqn5x1r66Jz!J2yqJs5vr1q'
+SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz' + '1234567890' + ' !?.'
+print("IN: ", original)
 for key in range(len(SYMBOLS)):
-    translated = ''
-    for symbol in message:
+    result = ''
+    for symbol in original:
         if symbol in SYMBOLS:
-            symbolIndex = SYMBOLS.find(symbol)
-            translatedIndex = symbolIndex - key
-            if translatedIndex < 0:
-                translatedIndex = translatedIndex + len(SYMBOLS)
-            translated = translated + SYMBOLS[translatedIndex]
+            symbol_index = SYMBOLS.find(symbol)
+            translated_index = symbol_index - key
+            if translated_index < 0:
+                translated_index = translated_index + len(SYMBOLS)
+            result = result + SYMBOLS[translated_index]
         else:
-            translated = translated + symbol
-    print('Key #%s: %s' % (key, translated))
+            result = result + symbol
+    print('Key #%s: %s' % (key, result))

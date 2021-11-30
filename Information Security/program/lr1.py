@@ -1,22 +1,22 @@
 key = 13
 mode = 'encrypt'
-message = 'Hello darkness my old friend'
-SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' + '1234567890 !?.'
-translated = ''
-for symbol in message:
+original = 'Hello darkness my old friend'
+SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz' + '1234567890' + ' !?.'
+result = ''
+for symbol in original:
     if symbol in SYMBOLS:
-        symbolIndex = SYMBOLS.find(symbol)
+        symbol_index = SYMBOLS.find(symbol)
         if mode == 'encrypt':
-            translatedIndex = symbolIndex + key
+            translated_index = symbol_index + key
         elif mode == 'decrypt':
-            translatedIndex = symbolIndex - key
-        if translatedIndex >= len(SYMBOLS):
-            translatedIndex = translatedIndex - len(SYMBOLS)
-        elif translatedIndex < 0:
-            translatedIndex = translatedIndex + len(SYMBOLS)
+            translated_index = symbol_index - key
+        if translated_index >= len(SYMBOLS):
+            translated_index = translated_index - len(SYMBOLS)
+        elif translated_index < 0:
+            translated_index = translated_index + len(SYMBOLS)
 
-        translated = translated + SYMBOLS[translatedIndex]
+        result = result + SYMBOLS[translated_index]
     else:
-        translated = translated + symbol
-print("IN: ", message)
-print("OUT: ", translated)
+        result = result + symbol
+print("IN: ", original)
+print("OUT: ", result)
